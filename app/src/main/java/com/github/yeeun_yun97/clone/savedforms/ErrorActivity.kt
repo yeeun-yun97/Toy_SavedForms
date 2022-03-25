@@ -1,0 +1,19 @@
+package com.github.yeeun_yun97.clone.savedforms
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+
+class ErrorActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_error)
+
+    var backButton: Button = findViewById<Button>(R.id.errorActivity_errorButton)
+        backButton.setOnClickListener {
+           this.onBackPressed()
+        }
+
+    }
+}

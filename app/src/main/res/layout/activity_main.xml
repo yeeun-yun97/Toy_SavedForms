@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
 
     <include
         android:id="@+id/mainActivity_actionBar"
@@ -16,173 +16,209 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/mainActivity_emailTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="아이디(이메일)"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_actionBar" />
-
-    <EditText
-        android:id="@+id/mainActivity_emailEditText"
-        android:hint="이메일 주소"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_emailTextview" />
+        app:layout_constraintTop_toBottomOf="@+id/mainActivity_actionBar"
+        android:paddingHorizontal="15dp">
 
-    <TextView
-        android:id="@+id/mainActivity_passwordTextview"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_emailEditText" />
-
-    <EditText
-        android:id="@+id/mainActivity_passwordEditText"
-        android:hint="비밀번호"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_passwordTextview" />
-
-    <EditText
-        android:id="@+id/mainActivity_passwordConfirmEditText"
-        android:hint="비밀번호 (확인)"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_passwordEditText" />
-
-    <TextView
-        android:id="@+id/mainActivity_nameTextview"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이름"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_passwordConfirmEditText" />
-
-    <EditText
-        android:id="@+id/mainActivity_nameEditText"
-        android:hint="이름"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_nameTextview" />
-
-    <TextView
-        android:id="@+id/mainActivity_phoneTextview"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="휴대폰 번호"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_nameEditText" />
-
-    <EditText
-        android:id="@+id/mainActivity_phoneEditText"
-        android:hint="전화번호"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_phoneTextview" />
-
-    <TextView
-        android:id="@+id/mainActivity_addressTextview"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="주소"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_phoneEditText" />
-
-    <EditText
-        android:id="@+id/mainActivity_addressEditText"
-        android:hint="주소"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_addressTextview" />
-
-    <TextView
-        android:id="@+id/mainActivity_birthdayTextview"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="생년월일"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_addressEditText" />
-
-    <EditText
-        android:id="@+id/mainActivity_birthdayEditText"
-        android:hint="생일"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_birthdayTextview" />
-
-    <TextView
-        android:id="@+id/mainActivity_genderTextview"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="성별"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_birthdayEditText" />
-
-    <RadioGroup
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity_genderTextview"
-
-        >
-
-        <RadioButton
-            android:id="@+id/radioButton"
+        <TextView
+            android:id="@+id/mainActivity_emailTextview"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="남" />
+            android:layout_height="wrap_content"
+            android:text="아이디(이메일)"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
+        <EditText
+            android:id="@+id/mainActivity_emailEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="이메일 주소"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toStartOf="@id/mainActivity_emailDuplicateCheckButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_emailCheckedTextview" />
+
+        <Button
+            android:id="@+id/mainActivity_emailDuplicateCheckButton"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="여" />
-    </RadioGroup>
+            android:layout_height="wrap_content"
+            android:text="중복확인"
+            app:layout_constraintBottom_toBottomOf="@id/mainActivity_emailEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mainActivity_emailEditText" />
 
+        <TextView
+            android:id="@+id/mainActivity_emailCheckedTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_emailTextview" />
+
+        <TextView
+            android:id="@+id/mainActivity_passwordTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_emailEditText" />
+
+        <EditText
+            android:id="@+id/mainActivity_passwordEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_passwordTextview" />
+
+        <EditText
+            android:id="@+id/mainActivity_passwordConfirmEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="비밀번호 (확인)"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_passwordEditText" />
+
+        <TextView
+            android:id="@+id/mainActivity_nameTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_passwordConfirmEditText" />
+
+        <EditText
+            android:id="@+id/mainActivity_nameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="이름"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_nameTextview" />
+
+        <TextView
+            android:id="@+id/mainActivity_phoneTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="휴대폰 번호"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_nameEditText" />
+
+        <EditText
+            android:id="@+id/mainActivity_phoneEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="전화번호"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_phoneTextview" />
+
+        <TextView
+            android:id="@+id/mainActivity_addressTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주소"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_phoneEditText" />
+
+        <EditText
+            android:id="@+id/mainActivity_addressEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="주소"
+            android:inputType="textPostalAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_addressTextview" />
+
+        <TextView
+            android:id="@+id/mainActivity_birthdayTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="생년월일"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_addressEditText" />
+
+        <EditText
+            android:id="@+id/mainActivity_birthdayEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="생일"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_birthdayTextview" />
+
+        <TextView
+            android:id="@+id/mainActivity_genderTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="성별"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_birthdayEditText" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_genderTextview">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="남" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="여" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/MainActivity_submitButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="시작하기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
