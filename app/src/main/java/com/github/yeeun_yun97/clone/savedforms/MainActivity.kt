@@ -11,84 +11,69 @@ import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+    private val submitButton by lazy { findViewById<Button>(R.id.MainActivity_submitButton) }
+    private val emailDuplicateCheckButton by lazy { findViewById<Button>(R.id.mainActivity_emailDuplicateCheckButton) }
+    private val emailEditText by lazy { findViewById<EditText>(R.id.mainActivity_emailEditText) }
+    private val emailCheckedTextview by lazy { findViewById<TextView>(R.id.mainActivity_emailCheckedTextview) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        var submitButton: Button = findViewById(R.id.MainActivity_submitButton)
-        submitButton.setOnClickListener {
-            var intent = Intent(this, ErrorActivity::class.java)
-            startActivity(intent)
-        }
+        submitButton.setOnClickListener { startActivity(Intent(this, ErrorActivity::class.java)) }
         initEmailForm()
-
-        var emailDuplicateCheckButton: TextView = findViewById(R.id.mainActivity_emailDuplicateCheckButton)
-        var emailEditText: EditText = findViewById(R.id.mainActivity_emailEditText)
-        emailDuplicateCheckButton.setOnClickListener {
-            Log.d("EditText",emailEditText.text.toString())
-            setEmail(emailEditText.text.toString()) }
-
-        if(savedInstanceState!=null){
-            applySavedInstanceState(savedInstanceState)
-        }
-    }
-
-    fun setEmail(email: String) {
-        if (email.isEmpty()) {
-            Log.d("TAG", "empty!")
-        } else {
-            setCheckedEmailTextview(email)
-            hideEmailForm()
-            Log.d("TAG", "work!")
-        }
-    }
-
-    fun hideEmailForm() {
-        var emailEditText: EditText = findViewById(R.id.mainActivity_emailEditText)
-        var emailDuplicateCheckButton: TextView =
-            findViewById(R.id.mainActivity_emailDuplicateCheckButton)
-        emailEditText.setText("")
-        emailEditText.visibility = View.GONE
-        emailDuplicateCheckButton.visibility = View.GONE
-    }
-
-    fun setCheckedEmailTextview(email: String) {
-        var emailCheckedTextview: TextView = findViewById(R.id.mainActivity_emailCheckedTextview)
-        emailCheckedTextview.setText(email);
-        emailCheckedTextview.visibility = View.VISIBLE
-    }
-
-    fun initEmailForm() {
-        var emailEditText: EditText = findViewById(R.id.mainActivity_emailEditText)
-        var emailCheckedTextview: TextView = findViewById(R.id.mainActivity_emailCheckedTextview)
-        var emailDuplicateCheckButton: TextView =
-            findViewById(R.id.mainActivity_emailDuplicateCheckButton)
-        emailEditText.visibility = View.VISIBLE
-        emailDuplicateCheckButton.visibility = View.VISIBLE
-        emailCheckedTextview.visibility = View.GONE
-    }
-
-    fun applySavedInstanceState(savedInstanceState: Bundle) {
-        var email:String = savedInstanceState.getString("email") ?: ""
-        setEmail(email)
-    }
-
-    fun saveInstanceState(outState: Bundle){
-        var EmailTextview: TextView = findViewById(R.id.mainActivity_emailCheckedTextview)
-        if(!EmailTextview.text.isEmpty()) {
-            outState.putString("email", EmailTextview.text.toString())
+        emailDuplicateCheckButton.setOnClickListener { setEmail(emailEditText.text.toString()) }
+        if (savedInstanceState != null) {
+            restoreEmailString(savedInstanceState)
         }
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        Log.d("TAG","restore")
-        applySavedInstanceState(savedInstanceState)
+        Log.d("TAG", "restore")
+        restoreEmailString(savedInstanceState)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.d("TAG","save")
-        saveInstanceState(outState)
+        Log.d("TAG", "save")
+        saveEmailString(outState)
+    }
+
+    private fun initEmailForm() {
+        emailEditText.visibility = View.VISIBLE
+        emailDuplicateCheckButton.visibility = View.VISIBLE
+        emailCheckedTextview.visibility = View.GONE
+    }
+
+    private fun restoreEmailString(savedInstanceState: Bundle) {
+        var email: String = savedInstanceState.getString("email") ?: ""
+        setEmail(email)
+    }
+
+    private fun saveEmailString(outState: Bundle) {
+        if (!emailCheckedTextview.text.isEmpty()) {
+            outState.putString("email", emailCheckedTextview.text.toString())
+        }
+    }
+
+    private fun setEmail(email: String) {
+        if (email.isEmpty()) {
+            Log.d("TAG", "empty!")
+        } else {
+            Log.d("TAG", "work!")
+            setCheckedEmailTextview(email)
+            hideEmailForm()
+        }
+    }
+
+    private fun hideEmailForm() {
+        emailEditText.setText("")
+        emailEditText.visibility = View.GONE
+        emailDuplicateCheckButton.visibility = View.GONE
+    }
+
+    private fun setCheckedEmailTextview(email: String) {
+        emailCheckedTextview.setText(email);
+        emailCheckedTextview.visibility = View.VISIBLE
     }
 }

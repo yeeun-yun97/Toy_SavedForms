@@ -6,14 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 
 class ErrorActivity : AppCompatActivity() {
+    private val backButton: Button by lazy{findViewById(R.id.errorActivity_errorButton)}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_error)
 
-    var backButton: Button = findViewById<Button>(R.id.errorActivity_errorButton)
-        backButton.setOnClickListener {
-           this.onBackPressed()
-        }
-
+        backButton.setOnClickListener { this.onBackPressed() }
     }
 }
