@@ -11,7 +11,12 @@
         android:theme="@style/Theme.SavedForms">
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ErrorActivity"
             android:exported="false" />
